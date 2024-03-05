@@ -1,29 +1,29 @@
 {
-    "name": "vscode-python-test-adapter",
-    "displayName": "Python Test Explorer for Visual Studio Code",
+    "name": "vscode-python-test-adapter-daedalus",
+    "displayName": "Daedalus-Enhanced Python Test Explorer for Visual Studio Code",
     "description": "Run your Python tests in the Sidebar of Visual Studio Code",
     "icon": "img/icon.png",
-    "author": "Nikolay Kondratyev",
-    "publisher": "littlefoxteam",
+    "author": "Zackery Field",
+    "publisher": "daedalus",
     "version": "0.8.2",
     "license": "MIT",
-    "homepage": "https://github.com/kondratyev-nv/vscode-python-test-adapter",
+    "homepage": "https://github.com/zacatac/vscode-python-test-adapter",
     "repository": {
         "type": "git",
-        "url": "https://github.com/kondratyev-nv/vscode-python-test-adapter.git"
+        "url": "https://github.com/zacatac/vscode-python-test-adapter.git"
     },
     "bugs": {
-        "url": "https://github.com/kondratyev-nv/vscode-python-test-adapter/issues"
+        "url": "https://github.com/zacatac/vscode-python-test-adapter/issues"
     },
     "badges": [
         {
-            "url": "https://github.com/kondratyev-nv/vscode-python-test-adapter/workflows/GitHub%20Actions%20CI/badge.svg",
-            "href": "https://github.com/kondratyev-nv/vscode-python-test-adapter/actions?query=workflow%3A%22GitHub+Actions+CI%22+branch%3Amaster",
+            "url": "https://github.com/zacatac/vscode-python-test-adapter/workflows/GitHub%20Actions%20CI/badge.svg",
+            "href": "https://github.com/zacatac/vscode-python-test-adapter/actions?query=workflow%3A%22GitHub+Actions+CI%22+branch%3Amaster",
             "description": "Continuous integration (Travis)"
         },
         {
-            "url": "https://dev.azure.com/kondratyev-nv/Python%20Test%20Explorer%20for%20Visual%20Studio%20Code/_apis/build/status/Python%20Test%20Explorer%20for%20Visual%20Studio%20Code%20CI?branchName=master",
-            "href": "https://dev.azure.com/kondratyev-nv/Python%20Test%20Explorer%20for%20Visual%20Studio%20Code/_build/latest?definitionId=1?branchName=master",
+            "url": "https://dev.azure.com/zacatac/Python%20Test%20Explorer%20for%20Visual%20Studio%20Code/_apis/build/status/Python%20Test%20Explorer%20for%20Visual%20Studio%20Code%20CI?branchName=master",
+            "href": "https://dev.azure.com/zacatac/Python%20Test%20Explorer%20for%20Visual%20Studio%20Code/_build/latest?definitionId=1?branchName=master",
             "description": "Continuous integration (Azure Pipelines)"
         }
     ],
