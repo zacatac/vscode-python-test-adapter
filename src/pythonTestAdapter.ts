@@ -157,8 +157,40 @@ export class PythonTestAdapter implements TestAdapter {
             const testRuns = tests.map(async (test) => {
                 try {
                     const states = await this.testRunner.run(config, test, collector);
+
                     return states.forEach((state) => {
                         const testId = state.test as string;
+
+                        // TODO: handle the TestInfo type case in state.test
+                        if (state.state === 'failed' && typeof state.test === 'string') {
+                            this.logger.log('info', 'Test failed, running daedalus: ' + state.test);
+                            // TODO: eventually use builtin fetch when
+                            // enough users move to node v21.0.0
+                            // https://blog.logrocket.com/fetch-api-node-js/
+                            const axios = require('axios').default;
+
+                            const testFilePath = state.test.includes('::') ? state.test.split('::')[0] : state.test;
+                            const testOutput = state.message;
+                            const debugMode = true;
+                            const postData = {
+                                test_filepath: testFilePath,
+                                test_output: testOutput,
+                                debug: debugMode,
+                            };
+                            axios
+                                .post('http://127.0.0.1:2666/eval', postData, {
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                })
+                                .then((response: any) => {
+                                    this.logger.log('info', `Daedalus response: ${response.data}`);
+                                })
+                                .catch((error: any) => {
+                                    //TODO: report error to user and handle case where Daedalus is not running
+                                    this.logger.log('crit', `Daedalus request failed: ${error}`);
+                                });
+                        }
                         if (this.testsById.has(testId) && this.testsById.get(testId)?.type === 'suite') {
                             this.setTestStatesRecursive(testId, state.state, state.message);
                         } else {
